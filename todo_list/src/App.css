@@ -30,6 +30,52 @@
   display: flex;
   justify-content: space-around;
 }
+.center input{
+  padding: 10px;
+  width: 65%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid orangered;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.center button{
+  width: 20%;
+  padding: 10px;
+  font-size: 26px;
+  font-weight: bolder;
+  background: lightseagreen;
+  border: none;
+  border-radius: 5px;
+}
+.center button:hover{
+  background: lightgreen;
+}
 .lists{
-  margin: 20px 40px;
+  margin: 20px 60px;
+}
+.display li{
+  padding: 5px;
+  margin: 0px;
+  font-size: 22px;
+  list-style: none;
+}
+
+.display{
+  display: flex;
+  width: 80%;
+  margin: 10px 0px;
+  
+}
+.display button{
+  width: 20%;
+  padding: 5px;
+  font-size: 22px;
+  font-weight: bolder;
+  background: lightseagreen;
+  border: none;
+  border-radius: 5px;
+}
+.display button:hover{
+  background: red;
 }
