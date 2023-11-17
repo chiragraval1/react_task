@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-01</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: lightgreen;
+    }
+    .main{
+        width: 500px;
+        background: white;
+        border-radius: 25px;
+        padding: 30px;
+    }
+    .main header{
+        font-size: 32px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .main .content{
+        margin: 30px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    .main .content i{
+        font-size: 14px;
+    }
+    .main .content i:first-child{
+        margin:  3px 10px 0 0;
+    }
+    .main .content i:last-child{
+        display: flex;
+        align-items: flex-end;
+        margin: -20px 0 3px 20px;
+        
+    }
+    .main .content .quote{
+        word-break: break-all;
+        font-size: 22px;
+        text-align: center;
+    }
+    .main .author{
+        display: flex;
+        justify-content: end;
+        font-size: 18px;
+        margin-top: 20px;
+        font-style: italic;
+
+    }
+    .main .author span:first-child{
+        margin: -9px 10px 0 0;
+        font-family: monospace;
+
+    }
+    .main .buttons{
+        border-top: 1px solid #ccc;
+        margin-top: 20px;
+    }
+    .main .buttons .features{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .features ul{
+        display: flex;
+    }
+    .features ul li{
+        list-style: none;
+        margin: 0px 5px;
+        height: 45px;
+        width: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        color: lightgreen;
+        border: 2px solid lightgreen;
+        transition: all 0.3s ease ;
+    }
+    .features ul li:hover{
+        color: #fff;
+        background: lightgreen;
+    }
+    .features button{
+        border: none;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 30px;
+        background: lightgreen;
+        padding:  10px 20px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <header>Quote of the Day</header>
+        <div class="content">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote">Never Give Up
+                
+            </p>
+            <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="author"><span>__</span><span class="name">Chirag Raval</span></div>
+    
+        <div class="buttons">
+            <div class="features">
+                <ul>
+                    <li class="sound"><i class="fas fa-volume-up"></i></li>
+                    <li class="copy"><i class="fas fa-copy"></i></li>
+                    <li class="twitter"><i class="fab fa-twitter"></i></li>
+                </ul>
+                <button>New Quote</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        
+        const quoteText = document.querySelector(".quote");
+        const authorName =document.querySelector(".name")
+        const quoteButton = document.querySelector("button");
+        const soundBtn = document.querySelector(".sound");
+        const copyBtn = document.querySelector(".copy");
+        const twitterBtn = document.querySelector(".twitter");
+        
+
+        function randomquote(){
+            let x = parseInt(Math.random() * 14);
+            console.log(x);
+            quoteButton.innerText = "Loading Quote...."
+            
+            fetch("https://type.fit/api/quotes").then(res => res.json()).then(result => {
+                console.log(result)
+                    quoteText.innerText = result[x].text;
+                    authorName.innerText = result[x].author;
+                    
+            })
+            quoteButton.innerText = "New Quote";
+            
+        }
+        quoteButton.addEventListener("click", randomquote);
+        soundBtn.addEventListener("click", () => {
+            let utterance = new SpeechSynthesisUtterance(`${quoteText.innerText} by ${authorName.innerText}`);
+            speechSynthesis.speak(utterance);
+        })
+        copyBtn.addEventListener("click", () => {
+            navigator.clipboard.writeText(quoteText.innerHTML);
+        })
+        twitterBtn.addEventListener("click",()=>{
+            let tweetUrl =  `https://twitter.com/intent/tweet?url=${quoteText.innerText}`
+            window.open(tweetUrl,"_blank");
+        })
+    </script>
+</body>
+</html>

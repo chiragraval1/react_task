@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2 Word Scramble Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: lightpink;
+        }
+        .main{
+        width: 500px;
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        }
+        .main h2{
+            margin: 20px;
+            font-size: 26px;
+            font-weight: 600;
+            padding: 10px;
+            border-bottom:  1px solid rgb(241, 83, 83);
+        }
+        .content{
+            margin: 20px;
+        }
+        .content .word{
+            font-size: 35px;
+            letter-spacing: 20px;
+            text-align: center;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .content .details{
+            margin: 20px;
+            font-size: 18px;
+        }
+        .content .details p{
+            margin-bottom: 10px;
+        }
+        .details p b{
+            font-weight: 500;
+        }
+        .main input{
+            width: 90%;
+            height: 50px;
+            padding: 10px;
+            outline: none;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid rgb(241, 83, 83);
+            font-size: 18px;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 20px;
+        }
+        .buttons button{
+            border: none;
+            outline: none;
+            width: calc(100% / 2 - 20px);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .buttons .refresh{
+            background: lightsalmon;
+            
+        }
+        .buttons .check{
+            background: lightpink;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2>Worl Scrumble Game</h2>
+        <div class="content">
+            <p class="word"></p>
+            <div class="details">
+                <p class="hint">Hint: <span></span></p>
+                <p class="time">Time Left: <b></b>s</p>
+            </div>
+        </div>
+        <input type="text" placeholder="Enter Valid Word">
+        <div class="buttons">
+            <button class="refresh">Refresh Word</button>
+            <button class="check">Check Word</button>
+        </div>
+    </div>
+
+ <script src="02_word.js" defer></script>
+ <script src="02_game.js" defer></script>
+
+</body>
+</html>
