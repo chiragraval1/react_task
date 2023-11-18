@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: plum;
+}
+.testmonial{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    padding: 50px 0px;
+}
+.testmonial .image{
+    height: 170px;
+    width: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: auto;
+}
+.testmonial .slider{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    row-gap: 22px;
+    flex-direction: column;
+    text-align: center;
+}
+.slider p{
+    padding:  0px 160px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+.slider .quote-icon{
+    font-size: 30px;
+    color: #4070f4;  
+}
+.slider .details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.details .name{
+    font-size: 14px;
+    font-weight: 600;
+    color: #333
+}
+.details .job{
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+}
+.nav-button{
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 26px;
+    transform: translateY(30px);
+    transition: 0.3s;
+}
+.nav-button::after,
+.nav-button::before{
+    font-size: 20px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .swiper-button-next{
+        display: none;
+    }
+    .swiper-button-prev{
+        display: none;
+    }
+    .slider p{
+        padding:  0px 30px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+    }
+    
+}
